@@ -1,7 +1,17 @@
+import NavBar from "../../components/NavBar"
+import ShoppingCart from "../../components/shoppingCart"
+
+import Search from "../../components/Search"
+
 function Home (){
     return(
         <>
-        <h1>Pagina principal</h1>
+        <NavBar></NavBar>
+        <Search></Search>
+        <div className="home">
+            <div className="books">
+            </div>
+        </div>
         </>
     )
 }

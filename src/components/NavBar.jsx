@@ -1,8 +1,18 @@
-function NavBar (){
-    return(
-        <div className="navbar">
+import { useNavigate } from "react-router-dom";
 
-        </div>
+function NavBar (){
+    const navigate = useNavigate();
+    function goToLogin() {
+        navigate("/login");
+        console.log("Entró")
+    }
+    return(
+        <nav>
+            <b>Bhook    </b>
+            <button>Menu</button>
+            <button onClick={goToLogin}>Login</button>
+            <button>Recomendaciones</button>
+        </nav>
     )
 }
 export default NavBar

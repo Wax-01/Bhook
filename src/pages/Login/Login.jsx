@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react'
 import styles from './Login.module.css' 
 import { AuthContext } from '../../context/authcontext';
-
+import { useNavigate } from 'react-router-dom';
 function Login() {
 const [Email, setEmail]= useState("");
 const [password, setPassword]= useState("");
 const [loading, setLoading] = useState(false);
 const context = useContext(AuthContext);
 const [warning, setWarning]= useState("");
+const navigate = useNavigate();
   async function LoginSupabase() {
     const cleanEmail = Email.trim();
     const cleanPassword = password.trim();
@@ -20,12 +21,13 @@ const [warning, setWarning]= useState("");
     setLoading(false);
     if (success){
       alert("nice");
+      navigate("/home");
     } else {
       setWarning("Revisa tus credenciales");
     };
   }
   return (
-    <div>
+    <>
       <h1>Bhook</h1>
         <div className={styles.login}>
           {loading ? (
@@ -59,7 +61,7 @@ const [warning, setWarning]= useState("");
             )}    
         </div>
             
-    </div>
+    </>
   )
 }
 

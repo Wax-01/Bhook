@@ -1,10 +1,13 @@
 import AppRouter from "./routers/AppRouters"
 import { AuthProvider } from "./context/authcontext"
+import { ItemProvider } from "./context/ItemContext"
 function App() {
   return (
     <>
     <AuthProvider>
-      <AppRouter></AppRouter>
+      <ItemProvider>
+        <AppRouter></AppRouter>
+      </ItemProvider>
     </AuthProvider>
 
       

@@ -39,3 +39,9 @@ html, body, #root {
     margin-top: 4vh;
     justify-self: center;
 }
+.item{
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    height: 20vh;
+}

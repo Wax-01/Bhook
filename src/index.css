@@ -45,3 +45,32 @@ html, body, #root {
     width: 20vw;
     height: 20vh;
 }
+#books{
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-items: center;
+}
+.item{
+    width: 15vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;   
+    align-items: center;
+    background-color: beige;
+}
+.item b{
+    color: black;
+}
+.item p{
+    margin: 0;
+}
+.item button{
+    justify-self: flex-end;
+    margin-top: auto;
+}
+.item img{
+    width: 14vw;
+    height: 40  vh;
+    align-self: center;
+}

@@ -1,21 +1,39 @@
 import NavBar from "../../components/NavBar"
-import ShoppingCart from "../../components/shoppingCart"
 import Search from "../../components/Search"
 import { ItemContext } from "../../context/ItemContext"
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
+import ListItems, { Book } from "../../components/listItems"
 
 function Home (){
     const context=useContext(ItemContext);
-    async function RenderItems() {
-        const books=await context.getBook();
+    const [books,setBooks]= useState <Book[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+    async function loadBooks() {
+        const data = await context.getBook();
+
+        if (data) {
+            setBooks(data);
+            setLoading(false);
+        }
     }
+
+    loadBooks();
+}, []);
+    
     return(
         <>
         <NavBar></NavBar>
         <Search></Search>
         <div className="home">
-            <div className="books">
-                <button onClick={RenderItems}>Prueba de libros</button>
+            <div id="books">
+                {loading ?
+                    (<>Cargando</>)
+                    :(
+                    <ListItems data={books}></ListItems>
+                    )}
+
             </div>
         </div>
         </>

@@ -1,10 +1,16 @@
-function Item(nombre: string, descripcion:string,precio:Int16Array,imagenUrl:string) {
-    return(
+import { Book } from "./listItems";
+interface ItemProps {
+    data: Book;
+}
+
+function Item({data}:ItemProps) {
+    console.log(data);
+    return ( 
         <div className="item">
-            <img src={imagenUrl}/>
-            <b>{nombre}</b>
-            <p>{precio}</p>
-            <p>{descripcion}</p>
+            <img src={data.imagen_url}/>
+            <b>{data.nombre}</b>
+            <p>${data.precio}</p>
+            <button>Comprar</button>
         </div>
     )
 }
